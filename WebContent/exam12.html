@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="./assets/js/jquery/jquery-1.12.4.js"></script>
+<style>
+	.red {color: red;}
+	
+	.blue {color: blue;}
+
+</style>
+
+
+<title>Insert title here</title>
+</head>
+
+<body>
+	<form>
+		이름:<input type="text" name="name" value=""><br>
+		비밀번호:<input type="password" name="password" value=""><br>
+		<textarea name="content"></textarea>
+		<br><br>
+		이름2:<input type="text" name="name2" value="홍길동"><br>
+		비밀번호2:<input type="password" name="password2" value="1234"><br>
+		<textarea name="content2">산토끼토끼야</textarea>
+	</form>
+</body>
+	
+	<script type="text/javascript">
+	//.val()에 값을 추가할수도 불러올수도있다. text()와 동일.
+		//$("[name='name']").val("쀍");
+		//$("[type='text']").val("쀍");
+		$("[name='name']").val("지지우우웅");
+		$("[name='password']").val("1234");
+		$("[name='content']").val("미현이 바보이이이이잉");
+		var name2 = $("[name='name2']").val();
+		console.log(name2);
+		var password2 = $("[name='password']").val();
+		console.log(password2);
+		var content2 = $("[name='content']").val();
+		console.log(content2);
+		
+		if(name2 != '') {
+			prompt("이름입력해라");
+		}else {
+			prompt("이름은"+name2+"입니다.");
+		}
+		
+		
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</html>

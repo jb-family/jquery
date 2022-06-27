@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="./assets/js/jquery/jquery-1.12.4.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<ul>
+		<li id="first" class="red">첫번째 아이템입니다.</li>
+		<li id="second" class="blue"><strong>두번째 아이템입니다.</strong></li>
+		<li id="third" class="del">세번째아이템입니다.</li>
+		<li><strong>네번째 아이템입니다.</strong></li>
+		
+	</ul>
+	<input id="btn" type="button" VALUE="li요소추가" />
+</body>
+	
+	<script type="text/javascript">
+	//button 클릭이벤트
+		$("#btn").on("click", function() {
+			$("ul").append("<li>다섯번째아이템입니다.</li>");
+			$("ul").append("<li>여섯번째아이템입니다.</li>");
+			$("ul").append("<li>일곱번째아이템입니다.</li>");
+		});
+	//클릭 시 ul 태그 범위 내에서 클릭이벤트 발생하지만 값은 li에게 위임한다. 그런경우 매개변수 중간에 추가해주면 된다.
+	$("ul").on("click", "li", function() {
+		var $this = $(this);
+		var str = $this.text();
+		console.log(str);
+	});
+	
+	/*	
+	//li 클릭이벤트
+		$("li").on("click", function(){
+			var $this = $(this);
+			var str = $this.text();
+			console.log(str);
+		});
+	*/
+		
+	</script>
+
+</html>
