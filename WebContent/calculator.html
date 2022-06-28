@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./assets/js/jquery/jquery-1.12.4.js"></script>
+</head>
+<body>
+	<div>
+		<input type="text" id="display"  value=""><br>
+		<button class="num" value="7">7</button>
+		<button class="num" value="8">8</button>
+		<button class="num" value="9">9</button>
+		<button class="op" id="div" value="/">/</button><br>
+		<button class="num" value="4">4</button>
+		<button class="num" value="5">5</button>
+		<button class="num" value="6">6</button>
+		<button class="op" id="mul" value="*">*</button><br>
+		<button class="num" value="1">1</button>
+		<button class="num" value="2">2</button>
+		<button class="num" value="3">3</button>
+		<button class="op" id="mius" value="-">-</button><br>
+		<button class="num" value="0">0</button>
+		<button id="c" value="c">c</button>
+		<button id="equals" value="=">=</button>
+		<button class="op" id="plus" value="+">+</button>
+	</div>
+</body>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var boo = true;
+		var i = 0;
+		var j = 0;
+		var op;
+		
+		//숫자 클릭 이벤트 (0 ~ 9)
+		$(".num").on("click", function() {
+			if(boo === true) {
+				$this = $(this).val();	//i에 현재 입력한 숫자 값 받는다.
+				if(i === 0){
+					i = $this;
+				} else {
+					i += $this;
+				}
+				$("#display").val(i);
+				
+			}else {
+				$this = $(this).val();
+				if(j === 0) {
+					j = $this;
+				}else {
+					j += $this;
+				}
+				$("#display").val(j);
+			}
+		});	
+		
+		//operator 클릭 이벤트 ("+", "-", "/", "*")
+		$(".op").on("click", function() {
+			boo = false;
+			i = $("#display").val();	//i값으로 저장 boo = true일때
+			$("#display").val("");
+			op = $(this).val();
+			
+			if(op === $("#div")) {
+				op = $("#div").val();
+			}else if(op === $("#mul")) {
+				op = $("#mul").val();
+			}else if(op === $("#plus")) {
+				op = $("#plus").val();
+			}else if(op === $("#mius")) {
+				op = $("#mius").val();
+			}
+			j = 0;	//j값 초기화
+		});
+		
+		//equals 클릭 이벤트 ("=")
+		$("#equals").on("click", function() {
+			i = parseInt(i);
+			j = parseInt(j);
+			
+			$("#display").val(calculator());
+			boo = true;
+		});
+		
+		//C 클릭 이벤트 ("C")
+		$("#c").on("click", function() {
+			$("#display").val("");
+		});
+		
+		
+		var calculator = function() {
+			
+			switch(op) {
+			case "+" : return i + j;
+			break;
+			
+			case "-" : return i - j;
+			break;
+			
+			case "*" : return i * j;
+			break;
+			
+			case "/" : return i / j;
+			break;
+			}
+			
+		}
+		
+	})
+		
+		
+	</script>
+
+
+
+
+</html>
