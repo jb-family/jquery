@@ -25,9 +25,31 @@
 		<button id="equals" value="=">=</button>
 		<button class="op" id="plus" value="+">+</button>
 	</div>
+
 </body>
 
 	<script type="text/javascript">
+	
+	$("*").css("border", "none");
+	$("div").css("background-color", "pink");
+	$("div").css("padding", "15px");
+	$("div").width("282px");
+	$("div").height("285px");
+	
+	$(".num").css("background-color", "gray", "font-weight", "bold");
+	$("button").width("50px");
+	$("button").height("50px");
+	$("button").css("margin", "2px");
+	$("button").css("font-size", "25px");
+	$("#display").css("font-size", "25px");
+	$("#display").css("text-align", "right");
+	$("#display").width("275px");
+	$("#display").height("50px");
+	$("#display").css("background-color", "orange");
+	
+	
+	
+	
 	$(document).ready(function(){
 		var boo = true;
 		var i = 0;
@@ -72,6 +94,8 @@
 			}else if(op === $("#mius")) {
 				op = $("#mius").val();
 			}
+			
+			
 			j = 0;	//j값 초기화
 		});
 		
